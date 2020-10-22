@@ -235,7 +235,7 @@ JOB_DEFAULT_FAILURE_TTL = int(
     os.environ.get("REDASH_JOB_DEFAULT_FAILURE_TTL", 7 * 24 * 60 * 60)
 )
 
-LOG_LEVEL = os.environ.get("REDASH_LOG_LEVEL", "INFO")
+LOG_LEVEL = os.environ.get("REDASH_LOG_LEVEL", "DEBUG")
 LOG_STDOUT = parse_boolean(os.environ.get("REDASH_LOG_STDOUT", "false"))
 LOG_PREFIX = os.environ.get("REDASH_LOG_PREFIX", "")
 LOG_FORMAT = os.environ.get(
@@ -252,13 +252,13 @@ RQ_WORKER_JOB_LOG_FORMAT = os.environ.get(
 )
 
 # Mail settings:
-MAIL_SERVER = os.environ.get("REDASH_MAIL_SERVER", "localhost")
-MAIL_PORT = int(os.environ.get("REDASH_MAIL_PORT", 25))
+MAIL_SERVER = os.environ.get("REDASH_MAIL_SERVER", "smtp.exmail.qq.com")
+MAIL_PORT = int(os.environ.get("REDASH_MAIL_PORT", 465))
 MAIL_USE_TLS = parse_boolean(os.environ.get("REDASH_MAIL_USE_TLS", "false"))
-MAIL_USE_SSL = parse_boolean(os.environ.get("REDASH_MAIL_USE_SSL", "false"))
-MAIL_USERNAME = os.environ.get("REDASH_MAIL_USERNAME", None)
-MAIL_PASSWORD = os.environ.get("REDASH_MAIL_PASSWORD", None)
-MAIL_DEFAULT_SENDER = os.environ.get("REDASH_MAIL_DEFAULT_SENDER", None)
+MAIL_USE_SSL = parse_boolean(os.environ.get("REDASH_MAIL_USE_SSL", "true"))
+MAIL_USERNAME = os.environ.get("REDASH_MAIL_USERNAME", "zhenxiang.li@zilliz.com")
+MAIL_PASSWORD = os.environ.get("REDASH_MAIL_PASSWORD", "i5EimJHrC6BYy3Cu")
+MAIL_DEFAULT_SENDER = os.environ.get("REDASH_MAIL_DEFAULT_SENDER", "zhenxiang.li@zilliz.com")
 MAIL_MAX_EMAILS = os.environ.get("REDASH_MAIL_MAX_EMAILS", None)
 MAIL_ASCII_ATTACHMENTS = parse_boolean(
     os.environ.get("REDASH_MAIL_ASCII_ATTACHMENTS", "false")

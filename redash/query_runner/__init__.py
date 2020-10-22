@@ -115,6 +115,7 @@ class BaseQueryRunner(object):
         raise NotSupported()
 
     def _run_query_internal(self, query):
+        logger.error("in _run_query_internal")
         results, error = self.run_query(query, None)
 
         if error is not None:

@@ -143,8 +143,8 @@ class DataSourceListResource(BaseResource):
             abort(400)
 
         config = ConfigurationContainer(filter_none(req["options"]), schema)
-        if not config.is_valid():
-            abort(400)
+        # if not config.is_valid():
+        #     abort(400)
 
         try:
             datasource = models.DataSource.create_with_group(

@@ -52,8 +52,8 @@ WORKDIR /app
 # We first copy only the requirements file, to avoid rebuilding on every file
 # change.
 COPY requirements.txt requirements_bundles.txt requirements_dev.txt requirements_all_ds.txt ./
-RUN pip install -r requirements.txt -r requirements_dev.txt
-RUN if [ "x$skip_ds_deps" = "x" ] ; then pip install -r requirements_all_ds.txt ; else echo "Skipping pip install -r requirements_all_ds.txt" ; fi
+RUN pip install -r requirements.txt -r requirements_dev.txt -i http://pypi.douban.com/simple/ --trusted-host=pypi.douban.com/simple
+# RUN if [ "x$skip_ds_deps" ~= "x" ] ; then pip install -r requirements_all_ds.txt -i http://pypi.douban.com/simple/ --trusted-host=pypi.douban.com/simple; else echo "Skipping pip install -r requirements_all_ds.txt" ; fi
 
 COPY . /app
 COPY --from=frontend-builder /frontend/client/dist /app/client/dist

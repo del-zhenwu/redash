@@ -108,6 +108,7 @@ def run_query(query, parameters, data_source, query_id, max_age=0):
             )
         }
     else:
+        logging.error("Before enqueue query")
         job = enqueue_query(
             query.text,
             data_source,
