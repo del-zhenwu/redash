@@ -67,7 +67,6 @@ def send_test_mail(email=None):
     if email is None:
         email = settings.MAIL_DEFAULT_SENDER
 
-    pdb.set_trace()
     mail.send(
         Message(
             subject="Test Message from Redash", recipients=[email], body="Test message."
